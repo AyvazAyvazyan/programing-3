@@ -1,0 +1,15 @@
+
+canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    text-align: center;
+  }
+body {
+  background: rgb(100,147,139);
+background: linear-gradient(90deg, rgba(100,147,139,1) 0%, rgba(60,92,20,1) 42%, rgba(3,69,82,1) 82%);
+}
