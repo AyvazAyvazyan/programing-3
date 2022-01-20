@@ -1,18 +1,7 @@
-class GrassPredator {
-    constructor(x,y) {
-        this.x = x;
-        this.y = y;
+class GrassPredator extends LivingCreator {
+        constructor(x, y, index){
+        super(x, y, index);
         this.energy = 9;
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1], 
-            [this.x + 1, this.y + 1]
-            ];
     }
 // getNewCoordinates method ----------------------------------------------------------------
     getNewCoordinates(){
