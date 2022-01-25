@@ -1,4 +1,5 @@
-class water extends LivingCreator {
+let LivingCreator = require('./LivingCreator')
+module.export = class water extends LivingCreator {
         constructor(x, y, index){
         super(x, y, index);
         this.energy = 10;

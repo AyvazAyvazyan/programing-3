@@ -1,4 +1,5 @@
-class GrassPredator extends LivingCreator {
+let LivingCreator = require('./LivingCreator')
+module.export = class GrassPredator extends LivingCreator {
         constructor(x, y, index){
         super(x, y, index);
         this.energy = 9;
