@@ -34,14 +34,14 @@ module.export = class water extends LivingCreator {
      }   
 // Mul method ----------------------------------------------------------------
 mul() {
-let found = this.chooseCell(0);
-let exact = random(found)
+let found = super.chooseCell(0);
+let exact = found[Math.floor(Math.random() * found.length)]
 
 if (exact && this.energy > 14) {
     let x = exact[0];
     let y = exact[1];
 
-    let eater = new water(x, y);
+    let eater = new ater(x, y);
     matrix[y][x] = 5;
     waterArr.push(eater);
 
@@ -51,8 +51,8 @@ if (exact && this.energy > 14) {
 
 // Eat method ----------------------------------------------------------------
 eat(){
-let found = this.chooseCell(4,2,3);
-let exact = random(found)
+    let found = super.chooseCell(4,2,3,1);
+    let exact = found[Math.floor(Math.random() * found.length)]
 
 if (exact){
     this.energy +=2;
@@ -91,8 +91,8 @@ else {
 }
 // Move method --------------------------------------------------------------------
 move(){
-let found = this.chooseCell(0);
-let exact = random(found)
+    let found = super.chooseCell(0);
+    let exact = found[Math.floor(Math.random() * found.length)]
 
 if (exact){
     let x = exact[0];

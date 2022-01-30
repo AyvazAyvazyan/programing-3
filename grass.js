@@ -6,8 +6,8 @@ module.export = class Grass extends LivingCreator {
         }
     mul(){
         this.energy++;
-        let found = this.chooseCell(0);
-        let exact = random(found)
+        let found = super.chooseCell(0);
+        let exact = found[Math.floor(Math.random() * found.length)]
 
         if (exact && this.energy > 15) {
             let x = exact[0];

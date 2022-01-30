@@ -4,6 +4,8 @@ module.export = class GrassEater extends LivingCreator {
         super(x, y, index);
         this.energy = 10;
         }
+
+
 // getNewCoordinates method ----------------------------------------------------------------
     getNewCoordinates(){
         this.directions = [
@@ -17,11 +19,25 @@ module.export = class GrassEater extends LivingCreator {
             [this.x + 1, this.y + 1]
         ];
      }
+chooseCell(character, character3) {
+        this.getNewCoordinates()
+        var found = [];
+        for (var i in this.directions) {
+        var x = this.directions[i][0];
+        var y = this.directions[i][1];
+        if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
+        if (matrix[y][x] == character || matrix[y][x] == character3) {
+        found.push(this.directions[i]);
+            }
+        }
+    }
+            return found;
+}     
 
 // Mul method ----------------------------------------------------------------
 mul() {
-let found = this.chooseCell(0);
-let exact = random(found)
+let found = super.chooseCell(0);
+let exact = found[Math.floor(Math.random() * found.length)]
 
 if (exact && this.energy > 12) {
     let x = exact[0];
@@ -37,8 +53,8 @@ if (exact && this.energy > 12) {
 
 // Eat method ----------------------------------------------------------------
 eat(){
-let found = this.chooseCell(1);
-let exact = random(found)
+let found = super.chooseCell(1);
+let exact = found[Math.floor(Math.random() * found.length)]
 
 if (exact){
     this.energy +=2;
@@ -77,8 +93,8 @@ else {
 }
 // Move method --------------------------------------------------------------------
 move(){
-let found = this.chooseCell(0);
-let exact = random(found)
+let found = super.chooseCell(0);
+let exact = found[Math.floor(Math.random() * found.length)]
 
 if (exact){
     let x = exact[0];
