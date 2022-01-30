@@ -1,5 +1,5 @@
 let LivingCreator = require('./LivingCreator')
-module.export = class Fire extends LivingCreator {
+module.exports = class Fire extends LivingCreator {
         constructor(x, y, index){
         super(x, y, index);
         this.energy = 8;
