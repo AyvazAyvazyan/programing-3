@@ -2,8 +2,9 @@ var socket = io();
 var side = 12;
 
 function setup() {
-    createCanvas(80 * side, 64 * side);
+    createCanvas(60 * side, 60 * side);
    }
+
 
 function nkarel(matrix) {
     background(225);
@@ -30,10 +31,6 @@ function nkarel(matrix) {
                 fill("#e22822");
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 5) {
-                fill("#1950FA");
-                rect(x * side, y * side, side, side);
-            }
         }
     }
 }
@@ -42,3 +39,7 @@ function nkarel(matrix) {
         function () {
             socket.on('send matrix', nkarel)
         }, 100);
+
+function kill() {
+            socket.emit("kill")
+        }

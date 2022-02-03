@@ -8,7 +8,6 @@ Grass = require("./Grass")
 GrassEater = require("./GrassEater")
 GrassPredator = require("./GrassPredator")
 Fire = require("./Fire")
-Water = require("./Water")
 
 app.use(express.static("."));
 
@@ -21,8 +20,9 @@ grassArr = [];
 grassEaterArr = [];
 grassPredator = [];
 fireArr = [];
-waterArr = [];
 matrix = [];
+
+io.sockets.emit("send matrix", matrix)
 
 
 function CreateMatrix(m, n) {
@@ -45,14 +45,13 @@ function CreateMatrix(m, n) {
       AddCharacter(2, 20);
       AddCharacter(3, 20);
       AddCharacter(4, 20);
-      AddCharacter(5, 0);
 }
 
 CreateMatrix(80, 64);
 
 io.sockets.emit('send matrix', matrix)
 
-function createObject(matrix) {
+function createObject() {
     for (var y = 0; y < matrix.length; ++y) {
         for (var x = 0; x < matrix[y].length; ++x) {
             if (matrix[y][x] == 1) {
@@ -70,10 +69,6 @@ function createObject(matrix) {
             else if (matrix[y][x] == 4) {
                 var fi = new Fire(x, y);
                 fireArr.push(fi)
-            }
-            else if (matrix[y][x] == 5) {
-                var wa = new Water(x, y);
-                waterArr.push(wa)
             }
         }
     }
@@ -94,14 +89,27 @@ function game() {
     for(var i in fireArr){
         fireArr[i].eat();
     }
-    for(var i in waterArr){
-        waterArr[i].eat();
-    }
     io.sockets.emit("send matrix", matrix);
 }
 
 setInterval(game, 10)
 
+function kill() {
+    grassArr = [];
+    grassEaterArr = [];
+    grassPredator = [];
+    fireArr = [];
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+            matrix[y][x] = 0;
+        }
+    }
+    io.sockets.emit("send matrix", matrix);
+}
 io.on('connection', function () {
     createObject(matrix)
 })
+io.on('connection', function (socket) {
+    createObject();
+    socket.on("kill", kill);
+});

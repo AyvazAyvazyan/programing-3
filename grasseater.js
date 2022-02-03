@@ -66,11 +66,7 @@ if (exact){
             grassArr.splice(i, 1)
         }
     }
-    for (let i = 0; i < waterArr.length; i++) {
-        if( waterArr[i].x == x && waterArr[i].y == y ){
-            waterArr.splice(i, 1)
-        }
-    }
+    
     for (let i = 0; i < fireArr.length; i++) {
         if( fireArr[i].x == x && fireArr[i].y == y ){
             fireArr.splice(i, 1)
