@@ -2,7 +2,7 @@ let LivingCreator = require('./LivingCreator')
 module.exports = class Fire extends LivingCreator {
         constructor(x, y, index){
         super(x, y, index);
-        this.energy = 8;
+        this.energy = 35;
     }
 // getNewCoordinates method ----------------------------------------------------------------
     getNewCoordinates(){
@@ -36,7 +36,7 @@ module.exports = class Fire extends LivingCreator {
 mul() {
 let found = super.chooseCell(0);
 let exact = found[Math.floor(Math.random() * found.length)]
-if (exact && this.energy > 16) {
+if (exact && this.energy > 36) {
     let x = exact[0];
     let y = exact[1];
 
@@ -44,7 +44,7 @@ if (exact && this.energy > 16) {
     matrix[y][x] = 4;
     fireArr.push(eater);
 
-    this.energy = 14;
+    this.energy = 29;
 }
 }
 
@@ -75,7 +75,7 @@ if (exact){
     this.x = x;
     this.y = y
 
-    if(this.energy > 16){
+    if(this.energy > 19){
         this.mul()
     }
 }else {

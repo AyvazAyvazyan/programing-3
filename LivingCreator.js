@@ -13,7 +13,7 @@ module.exports = class LivingCreator {
             [this.x + 1, this.y + 1]
         ];
     }
-    chooseCell(char) {
+    chooseCell(character) {
         let result = [];
 
         for (let i = 0; i < this.directions.length; i++) {
@@ -21,7 +21,7 @@ module.exports = class LivingCreator {
             let y = this.directions[i][1];
 
             if ( y < matrix.length && y >= 0 && x < matrix[0].length && x >= 0 ){
-                if (matrix[y][x] == char) {
+                if (matrix[y][x] == character) {
                     result.push(this.directions[i]);
                 }
             }

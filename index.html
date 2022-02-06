@@ -7,19 +7,30 @@
     <link rel="stylesheet" href="style.css">
     <title>Final Work</title>
     <script src="socket.io/socket.io.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 	<script src="script.js"></script>
       
 </head>
 <body>
-<div class="tools">
+    <div class="tools">
         <h1 style="color:yellowgreen">Events</h1>
         <ul>
             <li>
                 <button onclick="kill()">Kill them all</button>
             </li>
+            <li>
+                <button onclick="addGrass()">Add grass</button>
+            </li>
+            <li>
+                <button onclick="addGrassEater()">Add grass eater</button>
+            </li>
+            <li>
+                <button onclick="addGrassPredator()">Add grass predator</button>
+            </li>
+            <li>
+                <button onclick="addFire()">Add fire</button>
+            </li>
         </ul>
     </div>
-
 </body>
 </html>

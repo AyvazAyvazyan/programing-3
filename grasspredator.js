@@ -2,7 +2,7 @@ let LivingCreator = require('./LivingCreator')
 module.exports = class GrassPredator extends LivingCreator {
         constructor(x, y, index){
         super(x, y, index);
-        this.energy = 9;
+        this.energy = 30;
     }
 // getNewCoordinates method ----------------------------------------------------------------
     getNewCoordinates(){
@@ -37,7 +37,7 @@ mul() {
 let found = super.chooseCell(0);
 let exact = found[Math.floor(Math.random() * found.length)]
 
-if (exact && this.energy > 14) {
+if (exact && this.energy > 32) {
     let x = exact[0];
     let y = exact[1];
 
@@ -45,7 +45,7 @@ if (exact && this.energy > 14) {
     matrix[y][x] = 3;
     grassPredator.push(eater);
 
-    this.energy = 9;
+    this.energy = 30;
 } else {
     console.error('there is no way to multiply');   
 }
@@ -77,7 +77,7 @@ if (exact){
     this.x = x;
     this.y = y
 
-    if(this.energy > 14){
+    if(this.energy > 32){
         this.mul()
     }
 }else {
