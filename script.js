@@ -1,6 +1,7 @@
 var socket = io();
-
 var side = 12;
+var weath = 'summer';
+
 function setup() {
     createCanvas(80 * side, 64 * side);
    }
@@ -56,7 +57,7 @@ function nkarel(matrix) {
         socket.emit("add grassEater")
     }
     function addGrassPredator() {
-        socket.emit("add grass predator")
+        socket.emit("add grassPredator")
     }
     function addFire() {
         socket.emit("add fire")
